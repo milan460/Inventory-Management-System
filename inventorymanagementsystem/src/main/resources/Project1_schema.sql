@@ -1,0 +1,34 @@
+DROP TABLE IF EXISTS Items; 
+DROP TABLE IF EXISTS Warehouses;
+DROP TABLE IF EXISTS Admins;
+
+CREATE TABLE Admins (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	company VARCHAR(255) UNIQUE NOT NULL,
+	username VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Warehouses (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(255),
+    address VARCHAR(255),
+	category VARCHAR(50),
+    max_capacity INT,
+    admin_id INT,
+    FOREIGN KEY (admin_id) REFERENCES Admins(id) ON DELETE SET NULL
+);
+
+CREATE TABLE Items (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(255),
+	item_type VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
+    warehouse_id INT,
+    FOREIGN KEY (warehouse_id) REFERENCES Warehouses(id) ON DELETE CASCADE;
+);
+
+
