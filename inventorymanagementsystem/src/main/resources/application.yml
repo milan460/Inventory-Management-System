@@ -1,0 +1,16 @@
+spring:
+    datasource:
+            url: jdbc:postgresql://localhost:5432/inventory_management
+            username: postgres
+            password: postgres1                
+    output:
+        ansi:
+            enabled: ALWAYS          
+
+server:
+    port: 8080
+
+logging:
+    level:
+        com:
+            skillstorm: debug

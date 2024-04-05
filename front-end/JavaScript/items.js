@@ -147,11 +147,7 @@ function getAllWarehouses(){
 function handleCreateForm(event){
     event.preventDefault();
 
-
     let inputData = new FormData(document.getElementById('create-item-form'));
-
-
-    
 
     const newItemData = {
         name : inputData.get('item-name'),
@@ -177,9 +173,7 @@ function handleCreateForm(event){
 
     }).then( (newItem) => {
         const warehouse = allWarehouses.find( warehouse => warehouse.id === newItem.warehouse.id)
-        console.log(warehouse.name)
         newItem.warehouse.name = warehouse.name
-        console.log(newItem)
         addItemsToTable(newItem);
         document.getElementById('create-btn-close').click()
         cancelForm();
@@ -258,7 +252,7 @@ function handleUpdateForm(event){
 
     let inputData = new FormData(document.getElementById('update-item-form'));
     const warehouseId = parseInt(inputData.get('item-Warehouse'))
-    console.log(inputData.get('item-Warehouse'))
+    
 
     let itemFormData = {
         id : itemId,
@@ -273,7 +267,7 @@ function handleUpdateForm(event){
         }
     }
 
-    console.log(itemFormData)
+   
 
     fetch(URL + '/updateItem', {
         method : 'PUT',
@@ -295,8 +289,7 @@ function handleUpdateForm(event){
 
     //function to add the updated Item to the table
     function updateItemInTable(updatedItem){
-        console.log("it went thr")
-        console.log(updatedItem)
+        
         
         document.getElementById('tr-' + updatedItem.id).innerHTML = 
         `

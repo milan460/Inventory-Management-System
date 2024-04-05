@@ -4,11 +4,6 @@ const URL = 'http://localhost:8080/admins';
 let allAdmins = [];
 
 
-console.log(JSON.parse(sessionStorage.getItem('admin')));
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
     let xhr = new XMLHttpRequest();
@@ -43,8 +38,6 @@ function handleLogin(event){
     event.preventDefault();
     let inputData = new FormData(document.getElementById('login-form'));
 
-    console.log(inputData)
-
 
     let loginAdmin = {
         company : inputData.get('admin-company'),
@@ -67,8 +60,8 @@ function handleLogin(event){
         
         //stores the admin in the session storage to mimic user sessions to allow to use the admin's id for use in other files
         sessionStorage.setItem('admin', JSON.stringify(adminStorage))
-        console.log('this is the sessions storage')
-        console.log(JSON.parse(sessionStorage.getItem('admin')));
+
+        //redirects to the home page after successful login
         window.location.href = '../HTML/home.html';
     }
     

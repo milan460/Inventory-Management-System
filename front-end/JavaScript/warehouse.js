@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Handles the update modal
      */
-    //event listener for the update model after it has been loaded to passover the warehouseId from the button to the form input
+    //event listener for the update model after it has been loaded to passover the warehouseId from the button to the form hidden input
     let updateModal = document.getElementById('update-modal');
     if(updateModal){
         updateModal.addEventListener('shown.bs.modal', (event) => {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    //event listener for the delete modal after it has been loaded to passover the warehouseId from the button to the form input
+    //event listener for the delete modal after it has been loaded to passover the warehouseId from the button to the form hidden input
     let deleteModal = document.getElementById('delete-modal');
     if(deleteModal){
         deleteModal.addEventListener('shown.bs.modal', (event) => {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-        //create eventlistener for the form that creates the warehouse
+    //create eventlistener for the form that creates the warehouse
     let createForm = document.getElementById('create-warehouse-form')
     if(createForm){
         createForm.addEventListener('submit', handleCreateForm)
@@ -294,7 +294,11 @@ function deleteWarehouseFromTable(warehouseId){
     warehouseElement.remove();
 }
 
+//handles resetting the form
 function cancelForm(){
     document.getElementById('update-warehouse-form').reset()
     document.getElementById('create-warehouse-form').reset()
 }
+
+
+
