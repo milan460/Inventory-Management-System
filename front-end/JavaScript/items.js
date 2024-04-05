@@ -150,6 +150,7 @@ function handleCreateForm(event){
 
     let inputData = new FormData(document.getElementById('create-item-form'));
 
+
     
 
     const newItemData = {
@@ -349,6 +350,8 @@ function deleteItemFromTable(itemId){
     itemElement.remove();
 }
 
+
+//resets the form fields
 function cancelForm(){
     document.getElementById('update-item-form').reset();
     document.getElementById('create-item-form').reset();

@@ -66,21 +66,6 @@ public class ItemService {
     //create an item and inserting into database
     public Item createItem(Item item){
 
-//        Warehouse warehouse = warehouseService.findWarehouseById(item.getWarehouse().getId());
-//        int itemQuantity = item.getQuantity();
-//        int warehouseCapacity = warehouse.getMaxCapacity();
-//
-//
-//        if(itemQuantity > warehouseCapacity){
-//             return null;
-//        }
-//        else {
-//            warehouseCapacity -= itemQuantity;
-//            warehouse.setMaxCapacity(warehouseCapacity);
-//            warehouseService.updateWarehouse(warehouse);
-//            return itemRepository.save(item);
-//        }
-
         return itemRepository.save(item);
 
     }
@@ -94,16 +79,7 @@ public class ItemService {
 
     //delete an item from database
     public void deleteItem(int id){
-//
-//        Warehouse warehouse = warehouseService.findWarehouseById(item.getWarehouse().getId());
-//        int itemQuantity = item.getQuantity();
-//        int warehouseCapacity = warehouse.getMaxCapacity();
-//
-//        warehouseCapacity += itemQuantity;
-//        warehouse.setMaxCapacity(warehouseCapacity);
-//        warehouseService.updateWarehouse(warehouse);
 
-//        itemRepository.delete(item);
         itemRepository.deleteById(id);
     }
 }
